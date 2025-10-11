@@ -1229,6 +1229,18 @@
       customerInvoices: [
         { id: 'CUST-INV-001', customer: 'شركة النقل السريع', amount: 45000, dueDate: '2023-03-10', status: 'مسددة' },
         { id: 'CUST-INV-002', customer: 'شركة التوصيل المتكامل', amount: 32000, dueDate: '2023-03-15', status: 'متأخرة' }
+      ],
+      collections: [
+        { id: 'COL-001', customer: 'شركة النقل السريع', invoice: 'CUST-INV-001', amount: 45000, date: '2023-03-10', method: 'تحويل بنكي' },
+        { id: 'COL-002', customer: 'شركة التوصيل المتكامل', invoice: 'CUST-INV-002', amount: 15000, date: '2023-03-12', method: 'نقدي' }
+      ],
+      agingReports: [
+        { customer: 'شركة النقل السريع', current: 0, days30: 0, days60: 0, days90: 0, over90: 0, total: 0 },
+        { customer: 'شركة التوصيل المتكامل', current: 0, days30: 17000, days60: 0, days90: 0, over90: 0, total: 17000 }
+      ],
+      reconciliation: [
+        { account: 'البنك الأهلي', balance: 125000, statementBalance: 125000, difference: 0, status: 'متطابق' },
+        { account: 'البنك السعودي الفرنسي', balance: 75000, statementBalance: 73000, difference: 2000, status: 'غير متطابق' }
       ]
     };
 
@@ -1236,6 +1248,21 @@
       assets: [
         { id: 'AST-001', name: 'شاحنة نقل كبيرة', date: '2022-01-01', cost: 250000, currentValue: 200000, status: 'نشط' },
         { id: 'AST-002', name: 'معدات تخزين', date: '2022-03-15', cost: 80000, currentValue: 64000, status: 'نشط' }
+      ],
+      depreciation: [
+        { assetId: 'AST-001', assetName: 'شاحنة نقل كبيرة', method: 'القسط الثابت', annualDepreciation: 50000, accumulated: 50000, netValue: 200000 },
+        { assetId: 'AST-002', assetName: 'معدات تخزين', method: 'القسط الثابت', annualDepreciation: 16000, accumulated: 16000, netValue: 64000 }
+      ],
+      maintenance: [
+        { id: 'MNT-001', assetId: 'AST-001', assetName: 'شاحنة نقل كبيرة', date: '2023-02-15', cost: 2500, description: 'صيانة دورية' },
+        { id: 'MNT-002', assetId: 'AST-002', assetName: 'معدات تخزين', date: '2023-01-20', cost: 1200, description: 'إصلاح عطل' }
+      ],
+      valuation: [
+        { assetId: 'AST-001', assetName: 'شاحنة نقل كبيرة', date: '2023-03-01', method: 'القيمة السوقية', value: 210000 },
+        { assetId: 'AST-002', assetName: 'معدات تخزين', date: '2023-03-01', method: 'القيمة السوقية', value: 65000 }
+      ],
+      disposal: [
+        { id: 'DSP-001', assetId: 'AST-003', assetName: 'سيارة نقل صغيرة', date: '2023-02-28', method: 'بيع', amount: 45000, gainLoss: 5000 }
       ]
     };
 
@@ -1243,6 +1270,24 @@
       payroll: [
         { employee: 'أحمد محمد', basicSalary: 12000, allowances: 2000, deductions: 1500, netSalary: 12500 },
         { employee: 'محمد علي', basicSalary: 10000, allowances: 1500, deductions: 1200, netSalary: 10300 }
+      ],
+      deductions: [
+        { employee: 'أحمد محمد', type: 'تأمينات اجتماعية', amount: 1000 },
+        { employee: 'أحمد محمد', type: 'استقطاع سلفة', amount: 500 },
+        { employee: 'محمد علي', type: 'تأمينات اجتماعية', amount: 800 },
+        { employee: 'محمد علي', type: 'استقطاع سلفة', amount: 400 }
+      ],
+      bonuses: [
+        { employee: 'أحمد محمد', type: 'مكافأة أداء', amount: 2000, date: '2023-03-15' },
+        { employee: 'محمد علي', type: 'مكافأة أداء', amount: 1500, date: '2023-03-15' }
+      ],
+      socialInsurance: [
+        { employee: 'أحمد محمد', number: '123456789', subscriptionDate: '2020-01-01', status: 'نشط' },
+        { employee: 'محمد علي', number: '987654321', subscriptionDate: '2021-03-15', status: 'نشط' }
+      ],
+      reports: [
+        { period: 'مارس 2023', totalSalaries: 22800, totalDeductions: 2700, netAmount: 20100 },
+        { period: 'فبراير 2023', totalSalaries: 22800, totalDeductions: 2700, netAmount: 20100 }
       ]
     };
 
@@ -1250,6 +1295,22 @@
       cashFlow: [
         { date: '2023-03-15', description: 'إيرادات نقدية', deposits: 45000, withdrawals: 0 },
         { date: '2023-03-14', description: 'مصاريف تشغيل', deposits: 0, withdrawals: 28500 }
+      ],
+      bankAccounts: [
+        { name: 'البنك الأهلي', number: '123456789', balance: 125000, currency: 'ريال سعودي' },
+        { name: 'البنك السعودي الفرنسي', number: '987654321', balance: 75000, currency: 'ريال سعودي' }
+      ],
+      reconciliation: [
+        { account: 'البنك الأهلي', balance: 125000, statementBalance: 125000, difference: 0, status: 'متطابق' },
+        { account: 'البنك السعودي الفرنسي', balance: 75000, statementBalance: 73000, difference: 2000, status: 'غير متطابق' }
+      ],
+      investments: [
+        { id: 'INV-001', type: 'وديعة بنكية', amount: 100000, startDate: '2023-01-01', endDate: '2023-12-31', return: 5000 },
+        { id: 'INV-002', type: 'استثمار في أسهم', amount: 50000, startDate: '2023-02-01', currentValue: 52000, return: 2000 }
+      ],
+      cashReports: [
+        { period: 'مارس 2023', openingBalance: 80000, totalReceipts: 185000, totalPayments: 197000, closingBalance: 68000 },
+        { period: 'فبراير 2023', openingBalance: 75000, totalReceipts: 165000, totalPayments: 160000, closingBalance: 80000 }
       ]
     };
 
@@ -2014,7 +2075,132 @@
           `;
           break;
           
-        // ... باقي الأقسام بنفس النمط
+        case 'collections':
+          content = `
+            <h4>تحصيل المستحقات</h4>
+            <div class="search-box">
+              <input type="text" placeholder="بحث في عمليات التحصيل...">
+              <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="openNewCollectionForm()"><i class="fas fa-plus"></i> تسجيل تحصيل جديد</button>
+              <button class="action-btn secondary" onclick="exportToExcel('collections')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+            </div>
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>رقم العملية</th>
+                    <th>العميل</th>
+                    <th>الفاتورة</th>
+                    <th>المبلغ</th>
+                    <th>التاريخ</th>
+                    <th>طريقة الدفع</th>
+                    <th>الإجراءات</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${payablesData.collections.map(collection => `
+                    <tr>
+                      <td>${collection.id}</td>
+                      <td>${collection.customer}</td>
+                      <td>${collection.invoice}</td>
+                      <td>${collection.amount.toLocaleString()} ر.س</td>
+                      <td>${collection.date}</td>
+                      <td>${collection.method}</td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="icon-btn view" title="عرض"><i class="fas fa-eye"></i></button>
+                          <button class="icon-btn edit" title="تعديل"><i class="fas fa-edit"></i></button>
+                          <button class="icon-btn delete" title="حذف" onclick="deleteItem('عملية تحصيل')"><i class="fas fa-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          `;
+          break;
+          
+        case 'aging-reports':
+          content = `
+            <h4>تقارير الأعمار</h4>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="generateAgingReport()"><i class="fas fa-chart-bar"></i> إنشاء تقرير الأعمار</button>
+              <button class="action-btn secondary" onclick="exportToExcel('aging-reports')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+            </div>
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>العميل</th>
+                    <th>حالي</th>
+                    <th>1-30 يوم</th>
+                    <th>31-60 يوم</th>
+                    <th>61-90 يوم</th>
+                    <th>أكثر من 90 يوم</th>
+                    <th>الإجمالي</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${payablesData.agingReports.map(report => `
+                    <tr>
+                      <td>${report.customer}</td>
+                      <td>${report.current.toLocaleString()} ر.س</td>
+                      <td>${report.days30.toLocaleString()} ر.س</td>
+                      <td>${report.days60.toLocaleString()} ر.س</td>
+                      <td>${report.days90.toLocaleString()} ر.س</td>
+                      <td>${report.over90.toLocaleString()} ر.س</td>
+                      <td>${report.total.toLocaleString()} ر.س</td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          `;
+          break;
+          
+        case 'reconciliation':
+          content = `
+            <h4>تسوية الحسابات</h4>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="startReconciliation()"><i class="fas fa-sync-alt"></i> بدء عملية التسوية</button>
+              <button class="action-btn secondary" onclick="exportToExcel('reconciliation')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+            </div>
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>الحساب</th>
+                    <th>رصيد النظام</th>
+                    <th>رصيد الكشف</th>
+                    <th>الفرق</th>
+                    <th>الحالة</th>
+                    <th>الإجراءات</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${payablesData.reconciliation.map(rec => `
+                    <tr>
+                      <td>${rec.account}</td>
+                      <td>${rec.balance.toLocaleString()} ر.س</td>
+                      <td>${rec.statementBalance.toLocaleString()} ر.س</td>
+                      <td>${rec.difference.toLocaleString()} ر.س</td>
+                      <td><span style="color: ${rec.status === 'متطابق' ? 'var(--success)' : 'var(--warning)'}">${rec.status}</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="icon-btn view" title="عرض"><i class="fas fa-eye"></i></button>
+                          <button class="icon-btn edit" title="تعديل"><i class="fas fa-edit"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          `;
+          break;
       }
       
       detailsContainer.innerHTML = content;
@@ -2086,7 +2272,1424 @@
       }, 1500);
     }
 
-    // ... باقي الوظائف بنفس النمط
+    function openNewCollectionForm() {
+      openModal('تسجيل تحصيل جديد', `
+        <div class="form-group">
+          <label for="collectionCustomer">العميل:</label>
+          <select id="collectionCustomer">
+            <option value="شركة النقل السريع">شركة النقل السريع</option>
+            <option value="شركة التوصيل المتكامل">شركة التوصيل المتكامل</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="collectionInvoice">الفاتورة:</label>
+          <select id="collectionInvoice">
+            <option value="CUST-INV-001">CUST-INV-001</option>
+            <option value="CUST-INV-002">CUST-INV-002</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="collectionAmount">المبلغ:</label>
+          <input type="number" id="collectionAmount" placeholder="0.00">
+        </div>
+        <div class="form-group">
+          <label for="collectionDate">التاريخ:</label>
+          <input type="date" id="collectionDate" value="${new Date().toISOString().split('T')[0]}">
+        </div>
+        <div class="form-group">
+          <label for="collectionMethod">طريقة الدفع:</label>
+          <select id="collectionMethod">
+            <option value="نقدي">نقدي</option>
+            <option value="تحويل بنكي">تحويل بنكي</option>
+            <option value="شيك">شيك</option>
+          </select>
+        </div>
+        <div class="action-buttons">
+          <button class="action-btn success" onclick="saveCollection()"><i class="fas fa-save"></i> حفظ التحصيل</button>
+          <button class="action-btn secondary" onclick="closeModal()"><i class="fas fa-times"></i> إلغاء</button>
+        </div>
+      `);
+    }
+
+    function saveCollection() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم تسجيل التحصيل بنجاح');
+        closeModal();
+      }, 1500);
+    }
+
+    function generateAgingReport() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم إنشاء تقرير الأعمار بنجاح');
+      }, 1500);
+    }
+
+    function startReconciliation() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم بدء عملية التسوية بنجاح');
+      }, 1500);
+    }
+
+    // وظائف إدارة الأصول
+    function showAssetsSubSection(subsection) {
+      const detailsContainer = document.getElementById('assetsDetails');
+      let content = '';
+      
+      switch(subsection) {
+        case 'asset-register':
+          content = `
+            <h4>سجل الأصول</h4>
+            <div class="search-box">
+              <input type="text" placeholder="بحث في الأصول...">
+              <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="openNewAssetForm()"><i class="fas fa-plus"></i> إضافة أصل جديد</button>
+              <button class="action-btn secondary" onclick="exportToExcel('assets')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+            </div>
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>رقم الأصل</th>
+                    <th>اسم الأصل</th>
+                    <th>تاريخ الشراء</th>
+                    <th>التكلفة</th>
+                    <th>القيمة الحالية</th>
+                    <th>الحالة</th>
+                    <th>الإجراءات</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${assetsData.assets.map(asset => `
+                    <tr>
+                      <td>${asset.id}</td>
+                      <td>${asset.name}</td>
+                      <td>${asset.date}</td>
+                      <td>${asset.cost.toLocaleString()} ر.س</td>
+                      <td>${asset.currentValue.toLocaleString()} ر.س</td>
+                      <td><span style="color: ${asset.status === 'نشط' ? 'var(--success)' : 'var(--warning)'}">${asset.status}</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="icon-btn view" title="عرض"><i class="fas fa-eye"></i></button>
+                          <button class="icon-btn edit" title="تعديل"><i class="fas fa-edit"></i></button>
+                          <button class="icon-btn delete" title="حذف" onclick="deleteItem('أصل')"><i class="fas fa-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          `;
+          break;
+          
+        case 'depreciation':
+          content = `
+            <h4>إهلاك الأصول</h4>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="calculateDepreciation()"><i class="fas fa-calculator"></i> حساب الإهلاك</button>
+              <button class="action-btn secondary" onclick="exportToExcel('depreciation')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+            </div>
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>رقم الأصل</th>
+                    <th>اسم الأصل</th>
+                    <th>طريقة الإهلاك</th>
+                    <th>الإهلاك السنوي</th>
+                    <th>الإهلاك المتراكم</th>
+                    <th>القيمة الصافية</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${assetsData.depreciation.map(dep => `
+                    <tr>
+                      <td>${dep.assetId}</td>
+                      <td>${dep.assetName}</td>
+                      <td>${dep.method}</td>
+                      <td>${dep.annualDepreciation.toLocaleString()} ر.س</td>
+                      <td>${dep.accumulated.toLocaleString()} ر.س</td>
+                      <td>${dep.netValue.toLocaleString()} ر.س</td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          `;
+          break;
+          
+        case 'maintenance':
+          content = `
+            <h4>صيانة الأصول</h4>
+            <div class="search-box">
+              <input type="text" placeholder="بحث في سجلات الصيانة...">
+              <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="openNewMaintenanceForm()"><i class="fas fa-plus"></i> تسجيل صيانة جديدة</button>
+              <button class="action-btn secondary" onclick="exportToExcel('maintenance')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+            </div>
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>رقم الصيانة</th>
+                    <th>الأصل</th>
+                    <th>التاريخ</th>
+                    <th>التكلفة</th>
+                    <th>الوصف</th>
+                    <th>الإجراءات</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${assetsData.maintenance.map(maint => `
+                    <tr>
+                      <td>${maint.id}</td>
+                      <td>${maint.assetName}</td>
+                      <td>${maint.date}</td>
+                      <td>${maint.cost.toLocaleString()} ر.س</td>
+                      <td>${maint.description}</td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="icon-btn view" title="عرض"><i class="fas fa-eye"></i></button>
+                          <button class="icon-btn edit" title="تعديل"><i class="fas fa-edit"></i></button>
+                          <button class="icon-btn delete" title="حذف" onclick="deleteItem('سجل صيانة')"><i class="fas fa-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          `;
+          break;
+          
+        case 'valuation':
+          content = `
+            <h4>تقييم الأصول</h4>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="openValuationForm()"><i class="fas fa-balance-scale"></i> إجراء تقييم جديد</button>
+              <button class="action-btn secondary" onclick="exportToExcel('valuation')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+            </div>
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>رقم الأصل</th>
+                    <th>اسم الأصل</th>
+                    <th>التاريخ</th>
+                    <th>طريقة التقييم</th>
+                    <th>القيمة</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${assetsData.valuation.map(val => `
+                    <tr>
+                      <td>${val.assetId}</td>
+                      <td>${val.assetName}</td>
+                      <td>${val.date}</td>
+                      <td>${val.method}</td>
+                      <td>${val.value.toLocaleString()} ر.س</td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          `;
+          break;
+          
+        case 'disposal':
+          content = `
+            <h4>التخلص من الأصول</h4>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="openDisposalForm()"><i class="fas fa-trash-alt"></i> تسجيل تخلص من أصل</button>
+              <button class="action-btn secondary" onclick="exportToExcel('disposal')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+            </div>
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>رقم العملية</th>
+                    <th>الأصل</th>
+                    <th>التاريخ</th>
+                    <th>طريقة التخلص</th>
+                    <th>المبلغ</th>
+                    <th>ربح/خسارة</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${assetsData.disposal.map(disp => `
+                    <tr>
+                      <td>${disp.id}</td>
+                      <td>${disp.assetName}</td>
+                      <td>${disp.date}</td>
+                      <td>${disp.method}</td>
+                      <td>${disp.amount.toLocaleString()} ر.س</td>
+                      <td>${disp.gainLoss.toLocaleString()} ر.س</td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          `;
+          break;
+      }
+      
+      detailsContainer.innerHTML = content;
+    }
+
+    function openNewAssetForm() {
+      openModal('إضافة أصل جديد', `
+        <div class="form-group">
+          <label for="assetName">اسم الأصل:</label>
+          <input type="text" id="assetName" placeholder="أدخل اسم الأصل">
+        </div>
+        <div class="form-group">
+          <label for="assetDate">تاريخ الشراء:</label>
+          <input type="date" id="assetDate">
+        </div>
+        <div class="form-group">
+          <label for="assetCost">التكلفة:</label>
+          <input type="number" id="assetCost" placeholder="0.00">
+        </div>
+        <div class="form-group">
+          <label for="assetCategory">الفئة:</label>
+          <select id="assetCategory">
+            <option value="معدات">معدات</option>
+            <option value="مركبات">مركبات</option>
+            <option value="مباني">مباني</option>
+            <option value="أثاث">أثاث</option>
+          </select>
+        </div>
+        <div class="action-buttons">
+          <button class="action-btn success" onclick="saveAsset()"><i class="fas fa-save"></i> حفظ الأصل</button>
+          <button class="action-btn secondary" onclick="closeModal()"><i class="fas fa-times"></i> إلغاء</button>
+        </div>
+      `);
+    }
+
+    function saveAsset() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم إضافة الأصل بنجاح');
+        closeModal();
+      }, 1500);
+    }
+
+    function calculateDepreciation() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم حساب الإهلاك بنجاح');
+      }, 1500);
+    }
+
+    function openNewMaintenanceForm() {
+      openModal('تسجيل صيانة جديدة', `
+        <div class="form-group">
+          <label for="maintenanceAsset">الأصل:</label>
+          <select id="maintenanceAsset">
+            <option value="AST-001">شاحنة نقل كبيرة</option>
+            <option value="AST-002">معدات تخزين</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="maintenanceDate">التاريخ:</label>
+          <input type="date" id="maintenanceDate" value="${new Date().toISOString().split('T')[0]}">
+        </div>
+        <div class="form-group">
+          <label for="maintenanceCost">التكلفة:</label>
+          <input type="number" id="maintenanceCost" placeholder="0.00">
+        </div>
+        <div class="form-group">
+          <label for="maintenanceDescription">الوصف:</label>
+          <textarea id="maintenanceDescription" placeholder="وصف الصيانة"></textarea>
+        </div>
+        <div class="action-buttons">
+          <button class="action-btn success" onclick="saveMaintenance()"><i class="fas fa-save"></i> حفظ الصيانة</button>
+          <button class="action-btn secondary" onclick="closeModal()"><i class="fas fa-times"></i> إلغاء</button>
+        </div>
+      `);
+    }
+
+    function saveMaintenance() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم تسجيل الصيانة بنجاح');
+        closeModal();
+      }, 1500);
+    }
+
+    function openValuationForm() {
+      openModal('إجراء تقييم جديد', `
+        <div class="form-group">
+          <label for="valuationAsset">الأصل:</label>
+          <select id="valuationAsset">
+            <option value="AST-001">شاحنة نقل كبيرة</option>
+            <option value="AST-002">معدات تخزين</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="valuationDate">التاريخ:</label>
+          <input type="date" id="valuationDate" value="${new Date().toISOString().split('T')[0]}">
+        </div>
+        <div class="form-group">
+          <label for="valuationMethod">طريقة التقييم:</label>
+          <select id="valuationMethod">
+            <option value="القيمة السوقية">القيمة السوقية</option>
+            <option value="القيمة الدفترية">القيمة الدفترية</option>
+            <option value="التكلفة الاستبدالية">التكلفة الاستبدالية</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="valuationValue">القيمة:</label>
+          <input type="number" id="valuationValue" placeholder="0.00">
+        </div>
+        <div class="action-buttons">
+          <button class="action-btn success" onclick="saveValuation()"><i class="fas fa-save"></i> حفظ التقييم</button>
+          <button class="action-btn secondary" onclick="closeModal()"><i class="fas fa-times"></i> إلغاء</button>
+        </div>
+      `);
+    }
+
+    function saveValuation() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم حفظ التقييم بنجاح');
+        closeModal();
+      }, 1500);
+    }
+
+    function openDisposalForm() {
+      openModal('تسجيل تخلص من أصل', `
+        <div class="form-group">
+          <label for="disposalAsset">الأصل:</label>
+          <select id="disposalAsset">
+            <option value="AST-001">شاحنة نقل كبيرة</option>
+            <option value="AST-002">معدات تخزين</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="disposalDate">التاريخ:</label>
+          <input type="date" id="disposalDate" value="${new Date().toISOString().split('T')[0]}">
+        </div>
+        <div class="form-group">
+          <label for="disposalMethod">طريقة التخلص:</label>
+          <select id="disposalMethod">
+            <option value="بيع">بيع</option>
+            <option value="إهلاك كامل">إهلاك كامل</option>
+            <option value="تلف">تلف</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="disposalAmount">المبلغ:</label>
+          <input type="number" id="disposalAmount" placeholder="0.00">
+        </div>
+        <div class="action-buttons">
+          <button class="action-btn success" onclick="saveDisposal()"><i class="fas fa-save"></i> حفظ العملية</button>
+          <button class="action-btn secondary" onclick="closeModal()"><i class="fas fa-times"></i> إلغاء</button>
+        </div>
+      `);
+    }
+
+    function saveDisposal() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم تسجيل التخلص من الأصل بنجاح');
+        closeModal();
+      }, 1500);
+    }
+
+    // وظائف الرواتب والمكافآت
+    function showSalariesSubSection(subsection) {
+      const detailsContainer = document.getElementById('salariesDetails');
+      let content = '';
+      
+      switch(subsection) {
+        case 'payroll':
+          content = `
+            <h4>كشوف المرتبات</h4>
+            <div class="search-box">
+              <input type="text" placeholder="بحث في الموظفين...">
+              <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="openNewPayrollForm()"><i class="fas fa-plus"></i> إضافة موظف جديد</button>
+              <button class="action-btn secondary" onclick="exportToExcel('payroll')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+              <button class="action-btn success" onclick="processPayroll()"><i class="fas fa-calculator"></i> معالجة الرواتب</button>
+            </div>
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>الموظف</th>
+                    <th>الراتب الأساسي</th>
+                    <th>البدلات</th>
+                    <th>الاستقطاعات</th>
+                    <th>صافي الراتب</th>
+                    <th>الإجراءات</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${salariesData.payroll.map(employee => `
+                    <tr>
+                      <td>${employee.employee}</td>
+                      <td>${employee.basicSalary.toLocaleString()} ر.س</td>
+                      <td>${employee.allowances.toLocaleString()} ر.س</td>
+                      <td>${employee.deductions.toLocaleString()} ر.س</td>
+                      <td>${employee.netSalary.toLocaleString()} ر.س</td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="icon-btn view" title="عرض"><i class="fas fa-eye"></i></button>
+                          <button class="icon-btn edit" title="تعديل"><i class="fas fa-edit"></i></button>
+                          <button class="icon-btn delete" title="حذف" onclick="deleteItem('موظف')"><i class="fas fa-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          `;
+          break;
+          
+        case 'deductions':
+          content = `
+            <h4>الاستقطاعات</h4>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="openNewDeductionForm()"><i class="fas fa-plus"></i> إضافة استقطاع جديد</button>
+              <button class="action-btn secondary" onclick="exportToExcel('deductions')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+            </div>
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>الموظف</th>
+                    <th>نوع الاستقطاع</th>
+                    <th>المبلغ</th>
+                    <th>الإجراءات</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${salariesData.deductions.map(deduction => `
+                    <tr>
+                      <td>${deduction.employee}</td>
+                      <td>${deduction.type}</td>
+                      <td>${deduction.amount.toLocaleString()} ر.س</td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="icon-btn edit" title="تعديل"><i class="fas fa-edit"></i></button>
+                          <button class="icon-btn delete" title="حذف" onclick="deleteItem('استقطاع')"><i class="fas fa-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          `;
+          break;
+          
+        case 'bonuses':
+          content = `
+            <h4>المكافآت والحوافز</h4>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="openNewBonusForm()"><i class="fas fa-plus"></i> إضافة مكافأة جديدة</button>
+              <button class="action-btn secondary" onclick="exportToExcel('bonuses')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+            </div>
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>الموظف</th>
+                    <th>نوع المكافأة</th>
+                    <th>المبلغ</th>
+                    <th>التاريخ</th>
+                    <th>الإجراءات</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${salariesData.bonuses.map(bonus => `
+                    <tr>
+                      <td>${bonus.employee}</td>
+                      <td>${bonus.type}</td>
+                      <td>${bonus.amount.toLocaleString()} ر.س</td>
+                      <td>${bonus.date}</td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="icon-btn edit" title="تعديل"><i class="fas fa-edit"></i></button>
+                          <button class="icon-btn delete" title="حذف" onclick="deleteItem('مكافأة')"><i class="fas fa-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          `;
+          break;
+          
+        case 'social-insurance':
+          content = `
+            <h4>التأمينات الاجتماعية</h4>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="openNewInsuranceForm()"><i class="fas fa-plus"></i> إضافة تأمين جديد</button>
+              <button class="action-btn secondary" onclick="exportToExcel('social-insurance')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+            </div>
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>الموظف</th>
+                    <th>رقم الاشتراك</th>
+                    <th>تاريخ الاشتراك</th>
+                    <th>الحالة</th>
+                    <th>الإجراءات</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${salariesData.socialInsurance.map(insurance => `
+                    <tr>
+                      <td>${insurance.employee}</td>
+                      <td>${insurance.number}</td>
+                      <td>${insurance.subscriptionDate}</td>
+                      <td><span style="color: ${insurance.status === 'نشط' ? 'var(--success)' : 'var(--warning)'}">${insurance.status}</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="icon-btn edit" title="تعديل"><i class="fas fa-edit"></i></button>
+                          <button class="icon-btn delete" title="حذف" onclick="deleteItem('تأمين')"><i class="fas fa-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          `;
+          break;
+          
+        case 'reports':
+          content = `
+            <h4>تقارير الرواتب</h4>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="generateSalaryReport()"><i class="fas fa-chart-bar"></i> إنشاء تقرير الرواتب</button>
+              <button class="action-btn secondary" onclick="exportToExcel('salary-reports')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+            </div>
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>الفترة</th>
+                    <th>إجمالي الرواتب</th>
+                    <th>إجمالي الاستقطاعات</th>
+                    <th>الصافي</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${salariesData.reports.map(report => `
+                    <tr>
+                      <td>${report.period}</td>
+                      <td>${report.totalSalaries.toLocaleString()} ر.س</td>
+                      <td>${report.totalDeductions.toLocaleString()} ر.س</td>
+                      <td>${report.netAmount.toLocaleString()} ر.س</td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          `;
+          break;
+      }
+      
+      detailsContainer.innerHTML = content;
+    }
+
+    function openNewPayrollForm() {
+      openModal('إضافة موظف جديد', `
+        <div class="form-group">
+          <label for="employeeName">اسم الموظف:</label>
+          <input type="text" id="employeeName" placeholder="أدخل اسم الموظف">
+        </div>
+        <div class="form-group">
+          <label for="basicSalary">الراتب الأساسي:</label>
+          <input type="number" id="basicSalary" placeholder="0.00">
+        </div>
+        <div class="form-group">
+          <label for="allowances">البدلات:</label>
+          <input type="number" id="allowances" placeholder="0.00">
+        </div>
+        <div class="action-buttons">
+          <button class="action-btn success" onclick="saveEmployee()"><i class="fas fa-save"></i> حفظ الموظف</button>
+          <button class="action-btn secondary" onclick="closeModal()"><i class="fas fa-times"></i> إلغاء</button>
+        </div>
+      `);
+    }
+
+    function saveEmployee() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم إضافة الموظف بنجاح');
+        closeModal();
+      }, 1500);
+    }
+
+    function processPayroll() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم معالجة الرواتب بنجاح');
+      }, 1500);
+    }
+
+    function openNewDeductionForm() {
+      openModal('إضافة استقطاع جديد', `
+        <div class="form-group">
+          <label for="deductionEmployee">الموظف:</label>
+          <select id="deductionEmployee">
+            <option value="أحمد محمد">أحمد محمد</option>
+            <option value="محمد علي">محمد علي</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="deductionType">نوع الاستقطاع:</label>
+          <select id="deductionType">
+            <option value="تأمينات اجتماعية">تأمينات اجتماعية</option>
+            <option value="استقطاع سلفة">استقطاع سلفة</option>
+            <option value="استقطاع آخر">استقطاع آخر</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="deductionAmount">المبلغ:</label>
+          <input type="number" id="deductionAmount" placeholder="0.00">
+        </div>
+        <div class="action-buttons">
+          <button class="action-btn success" onclick="saveDeduction()"><i class="fas fa-save"></i> حفظ الاستقطاع</button>
+          <button class="action-btn secondary" onclick="closeModal()"><i class="fas fa-times"></i> إلغاء</button>
+        </div>
+      `);
+    }
+
+    function saveDeduction() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم إضافة الاستقطاع بنجاح');
+        closeModal();
+      }, 1500);
+    }
+
+    function openNewBonusForm() {
+      openModal('إضافة مكافأة جديدة', `
+        <div class="form-group">
+          <label for="bonusEmployee">الموظف:</label>
+          <select id="bonusEmployee">
+            <option value="أحمد محمد">أحمد محمد</option>
+            <option value="محمد علي">محمد علي</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="bonusType">نوع المكافأة:</label>
+          <select id="bonusType">
+            <option value="مكافأة أداء">مكافأة أداء</option>
+            <option value="مكافأة نهاية خدمة">مكافأة نهاية خدمة</option>
+            <option value="مكافأة أخرى">مكافأة أخرى</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="bonusAmount">المبلغ:</label>
+          <input type="number" id="bonusAmount" placeholder="0.00">
+        </div>
+        <div class="form-group">
+          <label for="bonusDate">التاريخ:</label>
+          <input type="date" id="bonusDate" value="${new Date().toISOString().split('T')[0]}">
+        </div>
+        <div class="action-buttons">
+          <button class="action-btn success" onclick="saveBonus()"><i class="fas fa-save"></i> حفظ المكافأة</button>
+          <button class="action-btn secondary" onclick="closeModal()"><i class="fas fa-times"></i> إلغاء</button>
+        </div>
+      `);
+    }
+
+    function saveBonus() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم إضافة المكافأة بنجاح');
+        closeModal();
+      }, 1500);
+    }
+
+    function openNewInsuranceForm() {
+      openModal('إضافة تأمين جديد', `
+        <div class="form-group">
+          <label for="insuranceEmployee">الموظف:</label>
+          <select id="insuranceEmployee">
+            <option value="أحمد محمد">أحمد محمد</option>
+            <option value="محمد علي">محمد علي</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="insuranceNumber">رقم الاشتراك:</label>
+          <input type="text" id="insuranceNumber" placeholder="أدخل رقم الاشتراك">
+        </div>
+        <div class="form-group">
+          <label for="insuranceDate">تاريخ الاشتراك:</label>
+          <input type="date" id="insuranceDate">
+        </div>
+        <div class="action-buttons">
+          <button class="action-btn success" onclick="saveInsurance()"><i class="fas fa-save"></i> حفظ التأمين</button>
+          <button class="action-btn secondary" onclick="closeModal()"><i class="fas fa-times"></i> إلغاء</button>
+        </div>
+      `);
+    }
+
+    function saveInsurance() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم إضافة التأمين بنجاح');
+        closeModal();
+      }, 1500);
+    }
+
+    function generateSalaryReport() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم إنشاء تقرير الرواتب بنجاح');
+      }, 1500);
+    }
+
+    // وظائف الخزينة والبنوك
+    function showTreasurySubSection(subsection) {
+      const detailsContainer = document.getElementById('treasuryDetails');
+      let content = '';
+      
+      switch(subsection) {
+        case 'cash-flow':
+          content = `
+            <h4>حركة الخزينة</h4>
+            <div class="search-box">
+              <input type="text" placeholder="بحث في حركة الخزينة...">
+              <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="openNewCashFlowForm()"><i class="fas fa-plus"></i> تسجيل حركة جديدة</button>
+              <button class="action-btn secondary" onclick="exportToExcel('cash-flow')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+            </div>
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>التاريخ</th>
+                    <th>الوصف</th>
+                    <th>الإيداعات</th>
+                    <th>السحوبات</th>
+                    <th>الإجراءات</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${treasuryData.cashFlow.map(flow => `
+                    <tr>
+                      <td>${flow.date}</td>
+                      <td>${flow.description}</td>
+                      <td>${flow.deposits.toLocaleString()} ر.س</td>
+                      <td>${flow.withdrawals.toLocaleString()} ر.س</td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="icon-btn view" title="عرض"><i class="fas fa-eye"></i></button>
+                          <button class="icon-btn edit" title="تعديل"><i class="fas fa-edit"></i></button>
+                          <button class="icon-btn delete" title="حذف" onclick="deleteItem('حركة خزينة')"><i class="fas fa-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          `;
+          break;
+          
+        case 'bank-accounts':
+          content = `
+            <h4>الحسابات البنكية</h4>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="openNewBankAccountForm()"><i class="fas fa-plus"></i> إضافة حساب بنكي جديد</button>
+              <button class="action-btn secondary" onclick="exportToExcel('bank-accounts')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+            </div>
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>اسم البنك</th>
+                    <th>رقم الحساب</th>
+                    <th>الرصيد</th>
+                    <th>العملة</th>
+                    <th>الإجراءات</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${treasuryData.bankAccounts.map(account => `
+                    <tr>
+                      <td>${account.name}</td>
+                      <td>${account.number}</td>
+                      <td>${account.balance.toLocaleString()} ر.س</td>
+                      <td>${account.currency}</td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="icon-btn view" title="عرض"><i class="fas fa-eye"></i></button>
+                          <button class="icon-btn edit" title="تعديل"><i class="fas fa-edit"></i></button>
+                          <button class="icon-btn delete" title="حذف" onclick="deleteItem('حساب بنكي')"><i class="fas fa-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          `;
+          break;
+          
+        case 'reconciliation':
+          content = `
+            <h4>التسويات البنكية</h4>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="startBankReconciliation()"><i class="fas fa-sync-alt"></i> بدء عملية التسوية</button>
+              <button class="action-btn secondary" onclick="exportToExcel('bank-reconciliation')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+            </div>
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>الحساب</th>
+                    <th>رصيد النظام</th>
+                    <th>رصيد الكشف</th>
+                    <th>الفرق</th>
+                    <th>الحالة</th>
+                    <th>الإجراءات</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${treasuryData.reconciliation.map(rec => `
+                    <tr>
+                      <td>${rec.account}</td>
+                      <td>${rec.balance.toLocaleString()} ر.س</td>
+                      <td>${rec.statementBalance.toLocaleString()} ر.س</td>
+                      <td>${rec.difference.toLocaleString()} ر.س</td>
+                      <td><span style="color: ${rec.status === 'متطابق' ? 'var(--success)' : 'var(--warning)'}">${rec.status}</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="icon-btn view" title="عرض"><i class="fas fa-eye"></i></button>
+                          <button class="icon-btn edit" title="تعديل"><i class="fas fa-edit"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          `;
+          break;
+          
+        case 'investments':
+          content = `
+            <h4>الاستثمارات</h4>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="openNewInvestmentForm()"><i class="fas fa-plus"></i> إضافة استثمار جديد</button>
+              <button class="action-btn secondary" onclick="exportToExcel('investments')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+            </div>
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>رقم الاستثمار</th>
+                    <th>نوع الاستثمار</th>
+                    <th>المبلغ</th>
+                    <th>تاريخ البدء</th>
+                    <th>تاريخ الانتهاء</th>
+                    <th>العائد</th>
+                    <th>الإجراءات</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${treasuryData.investments.map(investment => `
+                    <tr>
+                      <td>${investment.id}</td>
+                      <td>${investment.type}</td>
+                      <td>${investment.amount.toLocaleString()} ر.س</td>
+                      <td>${investment.startDate}</td>
+                      <td>${investment.endDate || 'N/A'}</td>
+                      <td>${investment.return.toLocaleString()} ر.س</td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="icon-btn view" title="عرض"><i class="fas fa-eye"></i></button>
+                          <button class="icon-btn edit" title="تعديل"><i class="fas fa-edit"></i></button>
+                          <button class="icon-btn delete" title="حذف" onclick="deleteItem('استثمار')"><i class="fas fa-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          `;
+          break;
+          
+        case 'cash-reports':
+          content = `
+            <h4>تقارير الخزينة</h4>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="generateCashReport()"><i class="fas fa-chart-bar"></i> إنشاء تقرير الخزينة</button>
+              <button class="action-btn secondary" onclick="exportToExcel('cash-reports')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+            </div>
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>الفترة</th>
+                    <th>رصيد أول المدة</th>
+                    <th>إجمالي الإيداعات</th>
+                    <th>إجمالي السحوبات</th>
+                    <th>رصيد آخر المدة</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${treasuryData.cashReports.map(report => `
+                    <tr>
+                      <td>${report.period}</td>
+                      <td>${report.openingBalance.toLocaleString()} ر.س</td>
+                      <td>${report.totalReceipts.toLocaleString()} ر.س</td>
+                      <td>${report.totalPayments.toLocaleString()} ر.س</td>
+                      <td>${report.closingBalance.toLocaleString()} ر.س</td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          `;
+          break;
+      }
+      
+      detailsContainer.innerHTML = content;
+    }
+
+    function openNewCashFlowForm() {
+      openModal('تسجيل حركة خزينة جديدة', `
+        <div class="form-group">
+          <label for="cashFlowDate">التاريخ:</label>
+          <input type="date" id="cashFlowDate" value="${new Date().toISOString().split('T')[0]}">
+        </div>
+        <div class="form-group">
+          <label for="cashFlowDescription">الوصف:</label>
+          <input type="text" id="cashFlowDescription" placeholder="وصف الحركة">
+        </div>
+        <div class="form-group">
+          <label for="cashFlowType">نوع الحركة:</label>
+          <select id="cashFlowType">
+            <option value="deposit">إيداع</option>
+            <option value="withdrawal">سحب</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="cashFlowAmount">المبلغ:</label>
+          <input type="number" id="cashFlowAmount" placeholder="0.00">
+        </div>
+        <div class="action-buttons">
+          <button class="action-btn success" onclick="saveCashFlow()"><i class="fas fa-save"></i> حفظ الحركة</button>
+          <button class="action-btn secondary" onclick="closeModal()"><i class="fas fa-times"></i> إلغاء</button>
+        </div>
+      `);
+    }
+
+    function saveCashFlow() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم تسجيل حركة الخزينة بنجاح');
+        closeModal();
+      }, 1500);
+    }
+
+    function openNewBankAccountForm() {
+      openModal('إضافة حساب بنكي جديد', `
+        <div class="form-group">
+          <label for="bankName">اسم البنك:</label>
+          <input type="text" id="bankName" placeholder="أدخل اسم البنك">
+        </div>
+        <div class="form-group">
+          <label for="accountNumber">رقم الحساب:</label>
+          <input type="text" id="accountNumber" placeholder="أدخل رقم الحساب">
+        </div>
+        <div class="form-group">
+          <label for="initialBalance">الرصيد الافتتاحي:</label>
+          <input type="number" id="initialBalance" placeholder="0.00">
+        </div>
+        <div class="form-group">
+          <label for="accountCurrency">العملة:</label>
+          <select id="accountCurrency">
+            <option value="ريال سعودي">ريال سعودي</option>
+            <option value="دولار أمريكي">دولار أمريكي</option>
+          </select>
+        </div>
+        <div class="action-buttons">
+          <button class="action-btn success" onclick="saveBankAccount()"><i class="fas fa-save"></i> حفظ الحساب</button>
+          <button class="action-btn secondary" onclick="closeModal()"><i class="fas fa-times"></i> إلغاء</button>
+        </div>
+      `);
+    }
+
+    function saveBankAccount() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم إضافة الحساب البنكي بنجاح');
+        closeModal();
+      }, 1500);
+    }
+
+    function startBankReconciliation() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم بدء عملية التسوية البنكية بنجاح');
+      }, 1500);
+    }
+
+    function openNewInvestmentForm() {
+      openModal('إضافة استثمار جديد', `
+        <div class="form-group">
+          <label for="investmentType">نوع الاستثمار:</label>
+          <select id="investmentType">
+            <option value="وديعة بنكية">وديعة بنكية</option>
+            <option value="استثمار في أسهم">استثمار في أسهم</option>
+            <option value="استثمار في سندات">استثمار في سندات</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="investmentAmount">المبلغ:</label>
+          <input type="number" id="investmentAmount" placeholder="0.00">
+        </div>
+        <div class="form-group">
+          <label for="investmentStartDate">تاريخ البدء:</label>
+          <input type="date" id="investmentStartDate">
+        </div>
+        <div class="form-group">
+          <label for="investmentEndDate">تاريخ الانتهاء:</label>
+          <input type="date" id="investmentEndDate">
+        </div>
+        <div class="action-buttons">
+          <button class="action-btn success" onclick="saveInvestment()"><i class="fas fa-save"></i> حفظ الاستثمار</button>
+          <button class="action-btn secondary" onclick="closeModal()"><i class="fas fa-times"></i> إلغاء</button>
+        </div>
+      `);
+    }
+
+    function saveInvestment() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم إضافة الاستثمار بنجاح');
+        closeModal();
+      }, 1500);
+    }
+
+    function generateCashReport() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم إنشاء تقرير الخزينة بنجاح');
+      }, 1500);
+    }
+
+    // وظائف التقارير المالية
+    function showReportsSubSection(subsection) {
+      const detailsContainer = document.getElementById('reportsDetails');
+      let content = '';
+      
+      switch(subsection) {
+        case 'balance-sheet':
+          content = `
+            <h4>تقرير الميزانية العمومية</h4>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="generateBalanceSheet()"><i class="fas fa-file-alt"></i> إنشاء التقرير</button>
+              <button class="action-btn secondary" onclick="exportToExcel('balance-sheet')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+              <button class="action-btn" onclick="printReport()"><i class="fas fa-print"></i> طباعة التقرير</button>
+            </div>
+            <div class="data-table">
+              <h5>قائمة المركز المالي - 31 مارس 2023</h5>
+              <table>
+                <tr><th colspan="2">الأصول</th></tr>
+                <tr><td>الأصول المتداولة</td><td>120,000 ر.س</td></tr>
+                <tr><td>الأصول الثابتة</td><td>350,000 ر.س</td></tr>
+                <tr><td><strong>إجمالي الأصول</strong></td><td><strong>470,000 ر.س</strong></td></tr>
+                <tr><th colspan="2">الالتزامات وحقوق الملكية</th></tr>
+                <tr><td>الالتزامات المتداولة</td><td>85,000 ر.س</td></tr>
+                <tr><td>رأس المال</td><td>350,000 ر.س</td></tr>
+                <tr><td>الأرباح المحتجزة</td><td>35,000 ر.س</td></tr>
+                <tr><td><strong>إجمالي الالتزامات وحقوق الملكية</strong></td><td><strong>470,000 ر.س</strong></td></tr>
+              </table>
+            </div>
+          `;
+          break;
+          
+        case 'income-statement':
+          content = `
+            <h4>تقرير قائمة الدخل</h4>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="generateIncomeStatement()"><i class="fas fa-file-alt"></i> إنشاء التقرير</button>
+              <button class="action-btn secondary" onclick="exportToExcel('income-statement')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+              <button class="action-btn" onclick="printReport()"><i class="fas fa-print"></i> طباعة التقرير</button>
+            </div>
+            <div class="data-table">
+              <h5>قائمة الدخل - الربع الأول 2023</h5>
+              <table>
+                <tr><td>الإيرادات</td><td>1,850,000 ر.س</td></tr>
+                <tr><td>تكلفة الإيرادات</td><td>1,120,000 ر.س</td></tr>
+                <tr><td><strong>إجمالي الربح</strong></td><td><strong>730,000 ر.س</strong></td></tr>
+                <tr><td>المصروفات التشغيلية</td><td>450,000 ر.س</td></tr>
+                <tr><td><strong>صافي الربح</strong></td><td><strong>280,000 ر.س</strong></td></tr>
+              </table>
+            </div>
+          `;
+          break;
+          
+        case 'cash-flow':
+          content = `
+            <h4>تقرير التدفقات النقدية</h4>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="generateCashFlowStatement()"><i class="fas fa-file-alt"></i> إنشاء التقرير</button>
+              <button class="action-btn secondary" onclick="exportToExcel('cash-flow-statement')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+              <button class="action-btn" onclick="printReport()"><i class="fas fa-print"></i> طباعة التقرير</button>
+            </div>
+            <div class="data-table">
+              <h5>قائمة التدفقات النقدية - الربع الأول 2023</h5>
+              <table>
+                <tr><td>التدفقات النقدية من الأنشطة التشغيلية</td><td>685,000 ر.س</td></tr>
+                <tr><td>التدفقات النقدية من الأنشطة الاستثمارية</td><td>-150,000 ر.س</td></tr>
+                <tr><td>التدفقات النقدية من الأنشطة التمويلية</td><td>50,000 ر.س</td></tr>
+                <tr><td><strong>صافي التغير في النقد</strong></td><td><strong>585,000 ر.س</strong></td></tr>
+              </table>
+            </div>
+          `;
+          break;
+          
+        case 'expenses':
+          content = `
+            <h4>تقرير المصروفات التشغيلية</h4>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="generateExpensesReport()"><i class="fas fa-file-alt"></i> إنشاء التقرير</button>
+              <button class="action-btn secondary" onclick="exportToExcel('expenses')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+              <button class="action-btn" onclick="printReport()"><i class="fas fa-print"></i> طباعة التقرير</button>
+            </div>
+            <div class="data-table">
+              <h5>تقرير المصروفات التشغيلية - الربع الأول 2023</h5>
+              <table>
+                <tr><td>الرواتب والمزايا</td><td>450,000 ر.س</td></tr>
+                <tr><td>الإيجارات</td><td>120,000 ر.س</td></tr>
+                <tr><td>المرافق</td><td>45,000 ر.س</td></tr>
+                <tr><td>الصيانة</td><td>35,000 ر.س</td></tr>
+                <tr><td>مصاريف تسويقية</td><td>60,000 ر.س</td></tr>
+                <tr><td><strong>إجمالي المصروفات التشغيلية</strong></td><td><strong>710,000 ر.س</strong></td></tr>
+              </table>
+            </div>
+          `;
+          break;
+          
+        case 'revenues':
+          content = `
+            <h4>تقرير الإيرادات والنفقات</h4>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="generateRevenuesReport()"><i class="fas fa-file-alt"></i> إنشاء التقرير</button>
+              <button class="action-btn secondary" onclick="exportToExcel('revenues')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+              <button class="action-btn" onclick="printReport()"><i class="fas fa-print"></i> طباعة التقرير</button>
+            </div>
+            <div class="data-table">
+              <h5>تقرير الإيرادات والنفقات - الربع الأول 2023</h5>
+              <table>
+                <tr><td>إيرادات النقل البري</td><td>850,000 ر.س</td></tr>
+                <tr><td>إيرادات النقل البحري</td><td>650,000 ر.س</td></tr>
+                <tr><td>إيرادات التخزين</td><td>350,000 ر.س</td></tr>
+                <tr><td><strong>إجمالي الإيرادات</strong></td><td><strong>1,850,000 ر.س</strong></td></tr>
+                <tr><td><strong>إجمالي النفقات</strong></td><td><strong>1,120,000 ر.س</strong></td></tr>
+                <tr><td><strong>صافي الربح</strong></td><td><strong>730,000 ر.س</strong></td></tr>
+              </table>
+            </div>
+          `;
+          break;
+          
+        case 'financial-analysis':
+          content = `
+            <h4>تقرير التحليل المالي</h4>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="generateFinancialAnalysis()"><i class="fas fa-file-alt"></i> إنشاء التقرير</button>
+              <button class="action-btn secondary" onclick="exportToExcel('financial-analysis')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+              <button class="action-btn" onclick="printReport()"><i class="fas fa-print"></i> طباعة التقرير</button>
+            </div>
+            <div class="data-table">
+              <h5>التحليل المالي - الربع الأول 2023</h5>
+              <table>
+                <tr><td>نسبة السيولة</td><td>1.8</td></tr>
+                <tr><td>نسبة الربحية</td><td>18.5%</td></tr>
+                <tr><td>نسبة المديونية</td><td>42%</td></tr>
+                <tr><td>نسبة كفاءة التشغيل</td><td>72%</td></tr>
+                <tr><td>نسبة العائد على الاستثمار</td><td>15.2%</td></tr>
+              </table>
+            </div>
+          `;
+          break;
+          
+        case 'kpi':
+          content = `
+            <h4>تقرير مؤشرات الأداء</h4>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="generateKPIReport()"><i class="fas fa-file-alt"></i> إنشاء التقرير</button>
+              <button class="action-btn secondary" onclick="exportToExcel('kpi')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+              <button class="action-btn" onclick="printReport()"><i class="fas fa-print"></i> طباعة التقرير</button>
+            </div>
+            <div class="data-table">
+              <h5>مؤشرات الأداء الرئيسية - الربع الأول 2023</h5>
+              <table>
+                <tr><td>نمو الإيرادات</td><td>12.5%</td></tr>
+                <tr><td>هامش الربح الصافي</td><td>18.5%</td></tr>
+                <tr><td>نسبة التكلفة إلى الإيرادات</td><td>60.5%</td></tr>
+                <tr><td>العائد على الأصول</td><td>8.2%</td></tr>
+                <tr><td>العائد على حقوق الملكية</td><td>15.2%</td></tr>
+              </table>
+            </div>
+          `;
+          break;
+          
+        case 'budgets':
+          content = `
+            <h4>تقرير الميزانيات والتوقعات</h4>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="generateBudgetReport()"><i class="fas fa-file-alt"></i> إنشاء التقرير</button>
+              <button class="action-btn secondary" onclick="exportToExcel('budgets')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+              <button class="action-btn" onclick="printReport()"><i class="fas fa-print"></i> طباعة التقرير</button>
+            </div>
+            <div class="data-table">
+              <h5>الميزانية والتوقعات - الربع الثاني 2023</h5>
+              <table>
+                <tr><td>الإيرادات المتوقعة</td><td>2,100,000 ر.س</td></tr>
+                <tr><td>المصروفات المتوقعة</td><td>1,350,000 ر.س</td></tr>
+                <tr><td>صافي الربح المتوقع</td><td>750,000 ر.س</td></tr>
+                <tr><td>نسبة النمو المتوقعة</td><td>13.5%</td></tr>
+              </table>
+            </div>
+          `;
+          break;
+          
+        case 'profitability':
+          content = `
+            <h4>تقرير الربحية والنمو</h4>
+            <div class="action-buttons">
+              <button class="action-btn" onclick="generateProfitabilityReport()"><i class="fas fa-file-alt"></i> إنشاء التقرير</button>
+              <button class="action-btn secondary" onclick="exportToExcel('profitability')"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+              <button class="action-btn" onclick="printReport()"><i class="fas fa-print"></i> طباعة التقرير</button>
+            </div>
+            <div class="data-table">
+              <h5>تقرير الربحية والنمو - الربع الأول 2023</h5>
+              <table>
+                <tr><td>نمو الإيرادات</td><td>12.5%</td></tr>
+                <tr><td>نمو صافي الربح</td><td>15.8%</td></tr>
+                <tr><td>هامش الربح الإجمالي</td><td>39.5%</td></tr>
+                <tr><td>هامش الربح الصافي</td><td>18.5%</td></tr>
+                <tr><td>العائد على الاستثمار</td><td>15.2%</td></tr>
+              </table>
+            </div>
+          `;
+          break;
+      }
+      
+      detailsContainer.innerHTML = content;
+    }
+
+    function generateReport() {
+      const reportType = document.getElementById('reportType').value;
+      const dateFrom = document.getElementById('dateFrom').value;
+      const dateTo = document.getElementById('dateTo').value;
+      
+      if (!dateFrom || !dateTo) {
+        alert('يرجى تحديد الفترة الزمنية للتقرير');
+        return;
+      }
+      
+      showLoading();
+      setTimeout(() => {
+        alert(`تم إنشاء تقرير ${reportType} للفترة من ${dateFrom} إلى ${dateTo} بنجاح`);
+      }, 1500);
+    }
+
+    function generateBalanceSheet() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم إنشاء تقرير الميزانية العمومية بنجاح');
+      }, 1500);
+    }
+
+    function generateIncomeStatement() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم إنشاء تقرير قائمة الدخل بنجاح');
+      }, 1500);
+    }
+
+    function generateCashFlowStatement() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم إنشاء تقرير التدفقات النقدية بنجاح');
+      }, 1500);
+    }
+
+    function generateExpensesReport() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم إنشاء تقرير المصروفات التشغيلية بنجاح');
+      }, 1500);
+    }
+
+    function generateRevenuesReport() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم إنشاء تقرير الإيرادات والنفقات بنجاح');
+      }, 1500);
+    }
+
+    function generateFinancialAnalysis() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم إنشاء تقرير التحليل المالي بنجاح');
+      }, 1500);
+    }
+
+    function generateKPIReport() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم إنشاء تقرير مؤشرات الأداء بنجاح');
+      }, 1500);
+    }
+
+    function generateBudgetReport() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم إنشاء تقرير الميزانيات والتوقعات بنجاح');
+      }, 1500);
+    }
+
+    function generateProfitabilityReport() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم إنشاء تقرير الربحية والنمو بنجاح');
+      }, 1500);
+    }
+
+    function printReport() {
+      showLoading();
+      setTimeout(() => {
+        alert('جاري طباعة التقرير...');
+      }, 1000);
+    }
+
+    function exportToExcel(type) {
+      showLoading();
+      setTimeout(() => {
+        alert(`تم تصدير بيانات ${type} إلى Excel بنجاح`);
+      }, 1500);
+    }
 
     // وظائف الرسوم البيانية
     function initializeCharts() {
@@ -2212,7 +3815,48 @@
       });
     }
 
-    // ... باقي الوظائف
+    function changeChartType(type) {
+      const buttons = document.querySelectorAll('.chart-type-btn');
+      buttons.forEach(button => {
+        button.classList.remove('active');
+      });
+      event.target.classList.add('active');
+      
+      // تحديث عنوان الرسم البياني
+      const chartTitle = document.getElementById('chartTitle');
+      
+      switch(type) {
+        case 'revenue':
+          chartTitle.textContent = 'الإيرادات والمصروفات الشهرية';
+          break;
+        case 'profit':
+          chartTitle.textContent = 'الربحية الشهرية';
+          break;
+        case 'cashflow':
+          chartTitle.textContent = 'التدفقات النقدية الشهرية';
+          break;
+        case 'assets':
+          chartTitle.textContent = 'هيكل الأصول';
+          break;
+      }
+      
+      // إعادة تهيئة الرسم البياني
+      initializeCharts();
+    }
+
+    function downloadChart() {
+      showLoading();
+      setTimeout(() => {
+        alert('تم تحميل الرسم البياني بنجاح');
+      }, 1500);
+    }
+
+    function printChart() {
+      showLoading();
+      setTimeout(() => {
+        alert('جاري طباعة الرسم البياني...');
+      }, 1000);
+    }
 
     // إضافة مستمع حدث للزر Enter في حقول الإدخال
     document.getElementById('password').addEventListener('keypress', function(e) {
@@ -2224,3 +3868,6 @@
 
 </body>
 </html>
+
+
+
